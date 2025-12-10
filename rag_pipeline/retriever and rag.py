@@ -61,7 +61,7 @@ class SimpleRetriever:
 
 
 # ---------------------------
-# RAG core logic (no imports from other files)
+# RAG core logic 
 # ---------------------------
 SYSTEM_PROMPT = """
 You are a domain-specific assistant.
@@ -150,10 +150,6 @@ Answer:
             "sources": sources,
         }
 
-
-# ---------------------------
-# Quick sanity test (optional)
-# ---------------------------
 # This dummy LLM lets you test the pipeline without loading a real model.
 def dummy_llm(prompt: str, **kwargs):
     return [{"generated_text": prompt + "\nI don't have enough information in the provided data to answer that."}]
