@@ -1,6 +1,5 @@
 !pip install -q -U langchain langchain-community langchain-core
 !pip install -q -U faiss-cpu sentence-transformers transformers
-
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -36,7 +35,7 @@ class FaissVectorStore:
         if self.index is None:
             raise ValueError("Vector store is empty. Call add_documents() first.")
         return self.index.similarity_search(query, k=k)
-
+        
     def save_local(self, index_dir: Path = DEFAULT_INDEX_DIR) -> None:
         if self.index is None:
             raise ValueError("No FAISS index to save.")
@@ -56,3 +55,4 @@ class FaissVectorStore:
             allow_dangerous_deserialization=True,
         )
         return store
+
